@@ -1,0 +1,427 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/*** RESETED ***/
+
+body {
+    font-family: Calibri;
+    padding: 20px;
+    width: 700px;
+    position: relative;
+    margin: 0 auto;
+}
+
+input {
+    font-family: inherit;
+    font-size: 100%;
+}
+
+input[type=text], input[type=password] {
+    margin-right: 10px;
+    border: 0;
+    border-bottom: 1px dashed gray;
+    background-color: transparent;
+    font-size: 120%;
+    font-family: monospace;
+}
+
+button {
+    font-size: 110%;
+    border-radius: 5px;
+    border: 1px solid #dadada;
+    padding: 5px;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    position: relative;
+    margin-right: 2px;
+    margin-bottom: 2px;
+    transition: 100ms all;
+}
+.unselectable {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+button.mouseDown {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    top:1px;
+    left:1px;
+}
+
+.etalon {
+    display: none !important;
+}
+
+a.delete, #uploadField .dz-remove {
+    text-decoration: none;
+    font-family: monospace;
+    font-weight: bolder;
+    font-size: 120%;
+    color: #ffadad;
+    display: inline-block;
+    position: relative;
+    transition: 200ms all;
+}
+a.delete:hover, #uploadField .dz-remove:hover {
+    color: #ff0000;
+}
+
+#status {
+    position: absolute;
+    top: 0;
+    right:0;
+    text-align: right;
+}
+#status span.error {color: red}
+#status span.connected  {color: green; display: none}
+#status .connected .connected {display: inline;}
+#status .connected .error {display: none}
+
+#login, #options, #ssh {
+    padding: 0px 5px 20px 5px;
+}
+
+#login, #options {
+    border-bottom: 1px solid #dadada;
+    margin-bottom: 20px;
+}
+
+/*#options, #ssh {
+    opacity: 0;
+    transition: 300ms all;
+}
+#options.visible, #ssh.visible {
+    opacity: 1;
+}*/
+
+#login .loginForm {
+}
+
+#login .firstFactor, #login .secondFactor, #login .DuoAnswer{
+    display: inline-block;
+    vertical-align: top;
+}
+
+#login .firstFactor input {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+#login .firstFactor {
+    width: 165px;
+    margin-right: 23px;
+}
+
+#login .secondFactor {
+    width: 115px;
+    margin-right: 30px;
+}
+
+#login .secondFactor label {
+    display: block;
+    margin-bottom: 12px;
+}
+#login .secondFactor label:first-child {margin-top: 3px}
+#login .secondFactor label:last-child {margin-bottom: 0}
+#login .secondFactor label input {
+    position: relative;
+    top: 1px;
+}
+
+#login .loginForm>button {
+    margin-top: 26px;
+}
+
+#login .DuoAnswer {
+    margin-left: 83px;
+    margin-top: 25px;
+    width: 0px;
+    overflow: hidden;
+    transition: 200ms all;
+}
+#login .DuoAnswer.visible {
+    width: 180px;
+}
+
+#login .DuoAnswer>div {
+    width:180px;
+}
+
+#login .DuoAnswer input {
+    font-size: 150%;
+    width: 132px;
+    letter-spacing: 8px;
+    -webkit-animation: DuoAnswer 1s infinite; /* Safari 4.0 - 8.0 */
+    animation: DuoAnswer 1s infinite;
+    border-bottom-color: transparent;
+}
+@-webkit-keyframes DuoAnswer {
+    50% {border-bottom-color: red;}
+}
+@keyframes DuoAnswer {
+    50% {border-bottom-color: red;}
+}
+
+#login .log {
+    margin-top:10px;
+    font-family: monospace;
+    max-height: 200px;
+    overflow: auto;
+    border: 1px solid #efefef;
+    padding: 3px 0;
+}
+
+#login .log .error {
+    color: red;
+}
+
+#options .interpreters .interpreter {
+    background-color: transparent;
+    transition: 200ms all;
+}
+
+#options .interpreters .interpreter:hover {
+    background-color: #ececec;
+}
+
+#options .interpreters .interpreter input {
+    width: 667px;
+    font-family: monospace;
+}
+
+#options .interpreters .interpreter .delete {
+    top: 1px;
+}
+
+#options .misc {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#options .misc input {
+    margin-left: 5px;
+    width: 418px;
+    margin-right: 0;
+    font-family: monospace;
+}
+
+#options .files {}
+
+#options .files .file {
+    display: inline-block;
+    vertical-align: top;
+    width: 315px;
+    position: relative;
+    padding: 0px 12px;
+    transition: 200ms all;
+    margin-right: 12px;
+}
+#options .files .file:nth-child(2n+1) {margin-right:0}
+
+#options .files .file .view {
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+#options .files .file input {
+    width: 100%;
+    text-align: right;
+    margin-right: 0;
+}
+
+#options .files .file a {
+    display: block;
+    position: absolute;
+    top: 3px;
+}
+#options .files .file .delete {right: 0;}
+#options .files .file .view {left: 0;}
+
+#options .files .file:hover {
+    background-color: #ececec;
+}
+
+#options .uploadFiles {
+    display: none;
+    position: fixed;
+    width: 500px;
+    height: 420px;
+    top: 50px;
+    left: 50%;
+    margin-left: -250px;
+    border: 1px solid #dadada;
+    background-color: white;
+    -webkit-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.75);
+    padding: 20px;
+    z-index: 1000;
+    text-align: center;
+}
+#options .uploadFiles.visible {
+    display: block;
+}
+
+#options .uploadFiles .delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: black;
+    font-size: 300%;
+}
+
+#options .uploadFiles .title {
+    font-size: 170%;
+}
+
+#options .uploadFiles .subtitle {
+    display: block;
+    font-size: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#uploadField {
+    margin-top: 10px;
+    font-family: monospace;
+    font-size:120%;
+    width: 100%;
+    height: 250px;
+    overflow: auto;
+    background-color: #cacaca;
+    text-align: left;
+    padding: 20px 0;
+}
+
+#uploadField div{display: inline-block;}
+#uploadField .dz-progress, #uploadField .dz-error-message, #uploadField .dz-success-mark,
+#uploadField .dz-error-mark, #uploadField .dz-size, #uploadField .dz-image
+    {display: none;}
+#uploadField .dz-preview {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+    background-color: transparent;
+    transition: 200ms all;
+}
+#uploadField .dz-preview:hover {
+    background-color: #efefef;
+}
+
+#ssh {
+    position: relative;
+}
+#ssh .command {
+    white-space: nowrap
+}
+#ssh .command [name=interpreter] {width: 150px;}
+#ssh .command [name=arguments] {width: 285px;margin-right: 0;}
+#ssh .command [name=file] {width: 196px;}
+#ssh .command .status {margin-left: 10px;}
+#ssh .command .status>span {display: none;}
+#ssh .command.pending .status .pending {display: inline;}
+#ssh .command.running .status .running {display: inline;}
+#ssh .command.done .status .done {display: inline;}
+
+#view {
+    position: fixed;
+    top: 20px;
+    left:20px;
+    right: 20px;
+    bottom: 20px;
+    border:1px solid #cacaca;
+    background-color: white;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 12px 3px rgba(0,0,0,0.75);
+    z-index: 1000;
+    display: none;
+}
+#view.visible {
+    display: block;
+}
+
+#view .title {
+    display: block;
+    text-align: center;
+    font-size: 120%;
+    margin: 10px 0;
+    border-bottom: 1px solid #cacaca;
+    padding-bottom: 10px;
+}
+
+#view .text {
+    padding: 10px;
+    overflow: auto;
+    white-space: pre;
+    font-family: monospace;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 10px;
+    top: 50px;
+    bottom: 10px;
+}
+
+#view .delete {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: black;
+    font-size: 240%;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="bioinformatic.us">
+    <serverData>
+      <paths name="bgsport.xyz">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="bioinformatic.us">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/" local="$PROJECT_DIR$" web="/SSH_Python" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="myvds.tk">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/SSH_Python" local="$PROJECT_DIR$" web="/SSH_Python" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSH_Python help</title>
+</head>
+<body>
+    <h1 style="text-align:center">SSH_Python help</h1>
+    <div style="text-align: center">
+        <img src="misc/main.png"/>
+    </div>
+    <div style="width: 800px; position: relative; margin: 0 auto;">
+        <ul>
+            <li>
+                1. Main login window. Here you can add host
+                if no port specified, 22 port will be used), SSH username and port, and choise Duo Security 2nd factor
+                If "Phone passcodes" specified, and additional input string for answer will be displayed after 1th factor
+                auth.<br/>
+                Statuses are shown in right top corner
+                Daemon status: shows if there is connection with php daemon.php over Websocket or no. Site looks for WS
+                connection or ./daemon.php address.<br/>
+                WS and WSS are supported. WSS need certificates to be available for read and write, see in daemon.php<br/>
+                SSH status: if daemon.php has SSH connection opened (with both 2 factors passed), SSH status "connected"
+                will be shown. Daemon doesn`t close SSH connection automaticaly,
+                soo it typically survive between page reloads<br/>
+                Log displayed in the bottom. It can contain important information about errors
+            </li>
+            <li>
+                2. Options. Contains list of interpreters, directory that will be searched for files and file list.<br/>
+                All data in unput (dashed strings) can be edited<br/>
+                To add new interpreter, type its name in the last line. Can be passed as "python" or by full path (for ex.
+                "/usr/lib/python")<br/>
+                Red "X" is for delete item.<br/>
+                Files can be uploaded (by dragging or choosing over standart file input),
+                deleted (by red "X") or renamed. "V" symbol allows to see file content.<br/>
+                IMPORTANT! Daemon gets file list from remote server over SSH connection, so if there is no SSH connection
+                (SSH: no connected), daemon can't show file list, delete or rename.
+            </li>
+            <li>
+                3. Commands. Every command consists from 3 parts: interpreter, arguments, target file.
+                Changing/deleting/adding of items in 2nd part reflects on same value here. <br/>
+                You can run only 1 command at the time<br/>
+                For adding new commands edit the empty bottom line.<br/>
+                You can run command by pressing button. When daemon processing a command, you will see elapsed time and
+                link for immediate stop<br/>
+                After command stops (by manual stop or after normal exit) you can see it's output<br/>
+                IMPORTANT! Like file list in 2nd block, here is same situation: until daemon is disconnected from SSH
+                server, all file selects are empty. All values will be loaded after SSH is connected.<br/>
+            </li>
+        </ul>
+        <p>
+            Daemon.php can understand if duo auth failed, or failed back. If it failed back, you still can work with
+            commands without any restrictions. If you failed once, you have to relogin again.<br/>
+            Most of fields will be saved after changing (except login info, witch will be saved after pressing connection
+            button)
+        </p>
+        <p>
+            All commands and interpreters data will be saved between page reloads and daemon.php reruns, if daemon can
+            make save file. If it can`t, log will contain an error message about it.
+        </p>
+        <p>
+            Daemon.php needs to be run in the background. Command line for it: "php daemon.php start -d"<br/>
+            If you need to change something, look in it's top for some control constants<br/>
+            PHP version 7.0 is required.
+        </p>
+    </div>
+</body>
+</html>
